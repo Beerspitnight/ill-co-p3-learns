@@ -17,6 +17,7 @@ venv.bak/
 *.secrets
 *.toml
 
+
 # Protect secrets
 secrets/
 
@@ -26,3 +27,5 @@ secrets/
 
 # Don’t bake in generated outputs
 learning_app/output/
+data/
+
