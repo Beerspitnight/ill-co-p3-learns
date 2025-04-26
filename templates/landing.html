@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>ill-Co-P3 - [landing]</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/static/styles.css">
+</head>
+  <body>
+  <div class="layout">
+    <div class="sidebar">
+      <div class="sidebar-welcome">
+        <div class="logo-container">
+          <img src="/static/logo_orange.png" alt="Logo" class="logo" />
+          <hr class="clean-divider" />  
+        </div>
+
+          <div>Hey, Good Looking, click over there --> and create am account</div>
+
+        <hr class="clean-divider" />
+
+        <div class="tag-stats">
+          <span>🌍 <strong>Images:</strong> <br>{{ total_tags | e }}</span>
+        </div>
+        <hr class="clean-divider" />
+
+        <div class="sidebar-links">
+          <h3>Fun Stuff to Check Out</h3>
+
+          <div class="sidebar-link">
+            <a href="https://open.spotify.com/playlist/4NgWuA0aWDaKxbKMwWnl8r" target="_blank">
+              <span class="emoji">🪨 🔊</span> <br>Turn it Up
+            </a>
+          </div>
+          <br>
+
+          <div class="sidebar-link">
+            <a href="https://chatgpt.com/g/g-FGhasb1tZ-therapist-psychologist-fictional-not-real-therapy" target="_blank">
+              <span class="emoji">⛔️ 👩‍⚕️</span><br>
+              Go Get Centered<br>
+              <span style="font-size: 0.5em; color: #e3ddd0;">You go get centered</span>
+            </a>
+          </div>
+
+          <div class="sidebar-link">
+            <a href="https://neal.fun/space-elevator/" target="_blank">
+              <span class="emoji">🚀 🚗</span> <br>To Infinity and...
+            </a>
+          </div>
+          <br>
+
+          <div class="sidebar-link">
+            <a href="https://www.instagram.com/thequalifiedcaptain/" target="_blank">
+              <span class="emoji">🏆 🚤</span><br> Red-Right-Return
+            </a>
+          </div>
+          <br>
+
+          <div class="sidebar-link">
+            <a href="https://www.instagram.com/jonbreaksbadnews/" target="_blank">
+              <span class="emoji">🧙‍♂️ 👎 📰</span><br> "Who is This?"
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="main-content">
+      <header style="display: flex; justify-content: space-between; align-items: center; padding: 1.75rem 2rem; border: 4px solid #ff6600; border-radius: 12px; margin-bottom: 2rem; background-color: #d6d0cc;">
+        <div class="branding">
+          <div style="font-size: 3rem; font-weight: 700; margin: 0;">ill–Co–P3:</div>
+          <div style="font-size: 2.5rem; font-weight: 600; margin-top: -0.5rem;">PATHFINDER</div>
+        </div>
+
+        <nav class="site-nav" style="display: flex; gap: 2rem; font-size: 1rem;">
+          <a href="/about" style="color: #1b1bf5; text-decoration: none;">About Us</a>
+          <a href="{{ url_for('login') }}" style="color: #1b1bf5; text-decoration: none;">Login</a>
+          <!-- Update the href for Docs -->
+          <a href="{{ url_for('docs') }}" style="color: #1b1bf5; text-decoration: none;">Docs</a>
+        </nav>
+      </header>
+
+      <section class="panel-box">
+        <h1 class="hero-title" style="text-align: center; text-shadow: 1px 1px 2px #888;">
+          This site is not corporate – It's not even organized.
+          <br>
+          <span style="font-size: 0.75em; display: block;"> -Lloyd would approve-</span>
+          <br>
+          <span style="text-shadow: 1px 1px 2px #ccc;">It is just a bored dude.</span>
+          <br>
+          <span style="font-size: 0.5em; display: block;">sometimes loves chaos – always loves <span class="emoji taco">🌮</span></span>
+        </h1>
+        <div class="btn-login">
+          <a href="{{ url_for('login') }}" class="button">Login/Create Account</a>
+        </div>
+        
+            </section>
+    <section class="divider">~Who is Lloyd?~</section>
+
+    <section class="panel-box">
+      <h2>Why am I here? What is going on?</h2>
+      <p>Built to help middle-aged guys escape mediocrity and fire up new brain pathways, this project started off as a Number Guessing Game, then it turned into chaos. Chaos is cool, sometimes. Tag stuff. Learn stuff. Maybe crash a server.</p>
+    </section>
+
+    <section class="panel-box">
+      <h2>You want me to do what?</h2>
+      <p>Look at images. Click a dropdown or two. Maybe hit a radio button. That’s it. That’s what we need from you. We don't know anything about design, so we need you to share your knowledge so we can teach our AI incarnation, who we call AssAI, how to design cool stuff.</p>
+    </section>
+
+    <section class="panel-box">
+      <h2>So What *Is* This?</h2>
+      <p>The ill-Co-P3 project is your stoney <span class="emoji glow">🌲🌬️</span> design bootcamp in disguise. Tag images, whisper critiques to baby AIs, and vibe with principles like Balance, Unity, and “Who designed this font?”</p>
+    </section>
+
+    <section class="panel-box">
+      <h2>You want me to do this for free??</h2>
+      <p>
+        The ill-Co-P3 should probably pay you, but they are simply groupings of excited electrons, so good luck collecting.<br>
+        It is easy: Create an account, tag images, whisper critiques to baby AIs, and vibe with principles like Balance, Unity, and “Who designed this font?”<br>
+        You also get the following at no additional cost, but you must call now. Operators are standing by.
+      </p>
+      <ul>
+        <li><span class="emoji">📦</span> Free access to the Pathfinder AI co-pilot</li>
+        <li><span class="emoji">🌍</span> Eternal bragging rights</li>
+        <li><span class="emoji">🧠</span> New brain grooves</li>
+      </ul>
+    </section>
+      <section class="panel-box">
+        <h2>What is the deal with the name?</h2>
+        <p>"Who knows where throughts come from? They just appear."</p>
+      </section>
+      
+      <section class="panel-box boombox-panel-box">
+        <!-- Background Boombox -->
+        <img src="/static/lloyd_boombox.png" alt="Boombox" class="boombox-bg">
+
+ 
+        <!-- Text Block -->
+        <div class="boombox-text">
+          Lloyd Dobler: the trench-coated protagonist of the seminal 1989 film *Say Anything* (arguably the finest year of the '80s, possibly the '90s too — hell, I wish I was still in ’89).
+      
+          Before there was The Dude, there was Lloyd.
+      
+          Lloyd — an amalgam of every archetype in your high school cafeteria — stood as the existential counterweight to the Reagan-era transactionality that defined so much of '80s pop culture. He wasn’t trying to sell anything, buy anything, or process anything. He just wanted to stand in the rain, hold up a boombox, and believe in something — even if that something was a Peter Gabriel song.
+      
+          More than just a hopeless romantic, Lloyd represented the distilled opposite of Gordon Gekko. Two years after *Wall Street* made “Greed is good” gospel, *Say Anything* whispered, “Yeah… but so is awkward sincerity and a killer mixtape.”<br>-Beerspitnight
+        </div>
+      </section>
+      
+    <footer class="site-footer">
+      <p>© 2024 ill-Co-P3: Pathfinder & BeerSpitNight</p>
+      <p>
+        <a href="https://open.spotify.com/playlist/4NgWuA0aWDaKxbKMwWnl8r" target="_blank">Playlist that started it all</a> |
+        <a href="https://github.com/Beerspitnight" target="_blank">GitHub</a>
+      </p>
+    </footer>
+  </div>
+</body>
+</html>

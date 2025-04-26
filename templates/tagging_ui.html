@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>ill-Co-P3 - Tagging UI</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+  <div class="layout">
+    <div class="sidebar">
+      <div class="sidebar-welcome">
+        <!-- 1. Add drop box style to logo container -->
+        <div class="logo-container" style="box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25); border-radius: 8px; padding: 0.75rem 1rem; margin-bottom: 1rem; text-align: center;">
+          <img src="/static/logo_orange.png" alt="Logo" class="logo" style="max-width: 150px; height: auto;" /> <!-- Adjusted logo size for padding -->
+          <!-- Removed hr from here -->
+        </div>
+        <!-- Added hr after logo box -->
+        <hr class="clean-divider" />
+
+        <!-- Welcome message box -->
+        <div style="box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25); border-radius: 8px; padding: 0.75rem 1rem;">
+          <!-- 4. Shorten username display -->
+          <span class="sidebar-highlight">Hey, Good Looking, you're logged in as: {{ username.split('@')[0] | e }}</span>
+        </div>
+        <hr class="clean-divider" />
+
+        <!-- 2. Moved Tag Stats Box here -->
+        <div class="tag-stats" style="box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25); border-radius: 8px; padding: 0.75rem 1rem; text-align: center;">
+          <!-- 3. Reduced font size by using h3 structure like other boxes -->
+          <h3><span class="sidebar-highlight">🧍‍♂️ Tagged by You:</span></h3>
+          <div style="margin-bottom: 1rem; font-size: 1.2rem;"> <!-- Adjusted count font size slightly -->
+            {{ personal_count }}
+          </div>
+          <h3><span class="sidebar-highlight">🌍 Total Tags:</span></h3>
+          <div style="font-size: 1.2rem;"> <!-- Adjusted count font size slightly -->
+            {{ global_total }}
+          </div>
+        </div>
+        <hr class="clean-divider" />
+
+        <!-- Logout Box -->
+        <div class="sidebar-help">
+          <div style="box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25); border-radius: 8px; padding: 0.75rem 1rem;">
+            <div class="sidebar-link" style="text-align: center; margin-top: -1rem; margin-bottom: 1rem;">
+              <a href="{{ url_for('logout') }}" style="color: #ff6600; font-weight: bold; text-decoration: none;">
+              <span style="font-size: 3rem;">🚪</span><span class="sidebar-highlight">Log Out</span>
+            </div>
+          </div>
+        </div>
+        <hr class="clean-divider" />
+
+        <!-- Quick Reference Box -->
+        <div class="sidebar-help" style="box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25); border-radius: 8px; padding: 0.75rem 1rem; text-align: center;">
+          <!-- Using h3 structure for consistency -->
+          <h3><span class="sidebar-highlight">Quick Reference:</span></h3>
+          <a href="https://guides.lib.berkeley.edu/design#s-lib-ctab-21113072-1" target="_blank" style="text-decoration: none; color: inherit; font-weight: bold;">
+            Berkeley Design Principles & Elements
+          </a>
+        </div>
+        <hr class="clean-divider" />
+
+        <!-- Fun Stuff Box -->
+        <div style="box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25); border-radius: 8px; padding: 0.75rem 1rem; margin-bottom: 1rem;">
+          <div class="sidebar-links">
+            <h3><span class="sidebar-highlight">Fun Stuff to Check Out</span></h3>
+            <!-- ... existing fun stuff links ... -->
+            <div class="sidebar-link">
+              <a href="https://open.spotify.com/playlist/4NgWuA0aWDaKxbKMwWnl8r" target="_blank">
+                <span class="emoji">🪨 🔊</span> Turn it Up
+              </a>
+            </div>
+            <div class="sidebar-link">
+              <a href="https://chatgpt.com/g/g-FGhasb1tZ-therapist-psychologist-fictional-not-real-therapy" target="_blank">
+                <span class="emoji">🚫 👩‍⚕️</span> Go Get Centered
+              </a>
+            </div>
+            <div class="sidebar-link">
+              <a href="https://neal.fun/space-elevator/" target="_blank">
+                <span class="emoji">🚀 🛗</span> To Infinity and...
+              </a>
+            </div>
+            <div class="sidebar-link">
+              <a href="https://www.instagram.com/thequalifiedcaptain/" target="_blank">
+                <span class="emoji">🏆 🚤</span> Red-on-Right
+              </a>
+            </div>
+            <div class="sidebar-link">
+              <a href="https://www.instagram.com/jonbreaksbadnews/" target="_blank">
+                <span class="emoji">🧙‍♂️ 👎 📰</span> "Who is This?"
+              </a>
+            </div>
+          </div>
+        </div>
+        <hr class="clean-divider" />
+
+        <!-- Connect Box -->
+        <div style="box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25); border-radius: 8px; padding: 0.75rem 1rem; margin-bottom: 1rem;">
+          <div class="sidebar-links">
+            <h3><span class="sidebar-highlight">Connect</span></h3>
+            <!-- ... existing connect links ... -->
+            <div class="sidebar-link">
+              <a href="https://github.com/Beerspitnight/ill-co-p3-learns" target="_blank">
+                <span class="emoji">🐙</span> GitHub - You can try to replicate...
+              </a>
+            </div>
+            <div class="sidebar-link">
+              <a href="mailto:illco.p.learning@gmail.com">
+                <span class="emoji">📫</span> Email Us
+              </a>
+            </div>
+          </div>
+        </div>
+        <hr class="clean-divider" />
+
+        <!-- Bukowski Box -->
+        <div style="box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25); border-radius: 8px; padding: 0.75rem 1rem; text-align: center;">
+          <h3>
+            <span class="sidebar-highlight">"Our ambition is often handicapped by our laziness."</span><br />
+            <span style="font-size: 1rem;">
+              <span style="color: #888684; white-space: nowrap;">-Charles Bukowski</span>
+            </span>
+          </h3>
+          <div class="buk-container">
+            <img src="/static/buk_sidebar.png" alt="Bukowski Sketch" class="buk" width="200" height="200" />
+          </div>
+        </div>
+      </div> <!-- Close sidebar-welcome -->
+    </div> <!-- Close sidebar -->
+
+    <main class="main-content">
+      <!-- Place the instructions_html at the very top of main content -->
+      <div class="instructions-block" style="margin-bottom:1rem;">
+        {{ instructions_html|safe }}
+      </div>
+      <!-- The rest of your main content follows... -->
+      <details id="instructions-details" class="instructions-toggle" style="margin-bottom:1rem; padding: 1rem; background: var(--panel); border: 2px solid var(--border); border-radius:6px;">
+        <summary style="font-size:1.1rem; font-weight:500; cursor:pointer;">ℹ️ Tagging Instructions</summary>
+        <div class="instructions-body" style="margin-top:0.75rem; line-height:1.4; color: var(--text);">
+          👋 <strong>Welcome to the Ill‑Co‑P3 Tagging Tool</strong><br>
+          Please tag each image‑text pair using the design principles and elements listed.<br>
+          If you're unsure, trust your first impressions—this is a collaborative, crowdsourced dataset.<br><br>
+          🖼 <strong>No caption?</strong><br>
+          Focus only on the visual design;<br>
+          use the image itself to decide which principles or elements are present.<br><br>
+          🧩 <strong>Only one tag?</strong><br>
+          Leave secondary tags blank if you're confident only one applies.<br><br>
+          🚫 <strong>Reject vs Offensive:</strong><br>
+          • Reject if low quality, duplicate, or too abstract.<br>
+          • Offensive if inappropriate content (nudity, violence, hate).<br><br>
+          📌 Your tags auto‑save on change.<br>
+          📥 Use the sidebar to download your tagged work.<br>
+          🔍 Quick Reference in the sidebar for design examples.
+          👋 - you can close this instruction thingy by clicking on the upside-down triangle at the top of the page.
+        </div>
+      </details>
+      <div class="image-container" style="display: flex; justify-content: center; align-items: center; min-height: 350px;">
+        {% if image.image_url %}
+          <img
+            src="{{ image.image_url | e }}"
+            alt="Image to tag"
+            style="max-width:100%; max-height:350px;"
+            onerror="this.onerror=null; this.src={{ url_for('static', filename='ill-co-p3-render.png')|tojson }};"          >
+        {% else %}
+          <img
+            src={{ url_for('static', filename='ill-co-p3-render.png')|tojson }}
+            alt="No image available"
+            style="max-width:100%; max-height:350px;"
+          >
+        {% endif %}
+      </div>
+      <div class="image-filename" style="text-align: center; margin: 1rem 0; font-weight: bold;">
+        {{ image.image_filename }}
+      </div>
+      <div id="save-status" class="save-status"></div>
+      <div class="nav-button" style="display: flex; justify-content: center; gap: 2rem; align-items: center; margin-top: 1.5rem;">
+        <button type="button" id="prevBtn" class="nav-button" title="Previous">
+          <img src="/static/back.svg" alt="Previous" style="height: 30px;">
+        </button>
+        <button type="button" id="saveTagsBtn" class="nav-button" title="Save & Next">
+          <img src="/static/save.svg" alt="Save" style="height: 30px;">
+        </button>
+        <button type="button" id="nextBtn" class="nav-button" title="Next">
+          <img src="/static/next.svg" alt="Next" style="height: 30px;">
+        </button>
+      </div>
+      <form id="tag-form" class="tagging-area" method="POST" data-image-id="{{ image.image_filename }}">
+        <div class="left-tagging">
+          <div class="dropdown-group">
+            <div class="panel">
+              <div class="panel-insert">
+                <div class="form-group">
+                  <select name="primary_element">
+                    <option value="">Primary Element</option>
+                    {% for item in elements %}
+                      <option value="{{ item }}">{{ item }}</option>
+                    {% endfor %}
+                  </select>
+                </div>
+                <div class="form-group">
+                  <select name="secondary_element">
+                    <option value="">Secondary Element</option>
+                    {% for item in elements %}
+                      <option value="{{ item }}">{{ item }}</option>
+                    {% endfor %}
+                  </select>
+                </div>
+              </div>
+            </div>
+          </div>
+      
+          <div class="dropdown-group">
+            <div class="panel">
+              <div class="panel-insert">
+                <div class="form-group">
+                  <select name="primary_principle">
+                    <option value="">Primary Principle</option>
+                    {% for item in principles %}
+                      <option value="{{ item }}">{{ item }}</option>
+                    {% endfor %}
+                  </select>
+                </div>
+                <div class="form-group">
+                  <select name="secondary_principle">
+                    <option value="">Secondary Principle</option>
+                    {% for item in principles %}
+                      <option value="{{ item }}">{{ item }}</option>
+                    {% endfor %}
+                  </select>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Moved Notes Panel to left column bottom -->
+          <div class="notes-panel dropdown-group">
+            <div class="panel no-border">
+              <div class="panel-insert">
+                <div class="box-title" style="text-align: center;">Tagger Notes</div>
+                <textarea name="notes" placeholder="Add any relevant notes..." style="width: 100%; height: 100px;"></textarea>
+                <div class="action-buttons" style="margin-top: 1rem; text-align: center;">
+                  <button type="button" id="saveDraftBtn" class="btn blue">Save</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Hidden fields for rejection logic -->
+        <input type="checkbox" name="rejected" id="rejected-checkbox" style="display:none;">
+        <input type="hidden" name="reject_reason" id="reject-reason" value="">
+
+        <div class="right-tagging" style="display: grid; grid-template-columns: 1fr; gap: 1.5rem;">
+          <!-- Image Quality Box -->
+          <div class="dropdown-group">
+            <div class="panel">
+              <div class="panel-insert">
+                <div class="quality-box" style="text-align: center;">Image Quality</div>
+                <div class="radio-group" style="display: flex; justify-content: center; gap: 1rem; margin-top: 1rem;">
+                  <label><input type="radio" name="image_quality" value="high"> High</label>
+                  <label><input type="radio" name="image_quality" value="medium"> Medium</label>
+                  <label><input type="radio" name="image_quality" value="low"> Low</label>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Image Issues Box - Added darker background panel -->
+          <input type="checkbox" id="offensive-checkbox" name="offensive" style="display: none;" />
+          <div class="dropdown-group">
+            <div class="panel">
+              <div class="panel-insert">
+                <div class="issues-box" style="text-align: center;">Image Issues</div>
+                <div class="checkbox" style="display: flex; justify-content: space-around; gap: 0.5rem; margin-top: 1rem;">
+                  <label><input type="checkbox" name="issues" value="blurry"> Blurry</label>
+                  <label><input type="checkbox" name="issues" value="watermark"> Water Mark</label>
+                  <label><input type="checkbox" name="issues" value="text"> Text Overlay</label>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Reject Button (inside form) -->
+          <div class="button-wrapper" style="display: flex; justify-content: center;">
+            <button type="button" id="rejectBtn" class="btn btn-reject">Reject Image</button>
+          </div>            
+         <!-- Offensive Image Button (outside form) -->
+          <div class="button-wrapper" style="display: flex; justify-content: center; margin-top: 1rem;">
+            <button type="button" id="markOffensiveBtn" class="btn red">🚫 Offensive Image</button>
+          </div>
+          <!-- Bukowski Quote -->
+          <div class="buk-quote">
+            <p>"I was waiting for<br>
+          something extraordinary to<br>
+          happen</p>
+            <p>but as the years wasted on<br>
+          nothing ever did unless I<br>
+          caused it."</p>
+            <p>― Charles Bukowski</p>
+          </div>
+        </div>
+      </form>
+      <!-- Toast Notification -->
+      <div id="toast" class="save-status"></div>
+
+      <!-- Script block for modal and details -->
+      <script>
+        document.addEventListener('DOMContentLoaded', () => {
+          // --- Existing Modal Logic ---
+          const modal = document.getElementById('instructionsModal'); // Assuming you still have a modal with this ID
+          const openBtn = document.getElementById('openInstructions'); // Assuming you have this button
+          const closeBtn = document.getElementById('closeInstructions'); // Assuming you have this button
+
+          // Check if modal elements exist before adding listeners
+          if (modal && openBtn && closeBtn) {
+            if (!localStorage.getItem('seenInstructionsModal')) { // Use a distinct key for the modal
+              modal.style.display = 'flex';
+              localStorage.setItem('seenInstructionsModal', 'true');
+            }
+            openBtn.addEventListener('click', () => modal.style.display = 'flex');
+            closeBtn.addEventListener('click', () => modal.style.display = 'none');
+          } else {
+            console.warn('Modal elements (instructionsModal, openInstructions, closeInstructions) not found.');
+          }
+
+          // --- New Details Logic ---
+          const detailsElement = document.getElementById('instructions-details');
+          const detailsStorageKey = 'seenInstructionsDetailsOpen'; // Use a distinct key
+
+          if (detailsElement) {
+            if (!localStorage.getItem(detailsStorageKey)) {
+              // If the flag is NOT set, open the details and set the flag
+              detailsElement.open = true;
+              localStorage.setItem(detailsStorageKey, 'true');
+            }
+            // No 'else' needed, it will default to closed if the flag IS set
+          } else {
+            console.warn('Details element (instructions-details) not found.');
+          }
+        });
+      </script>
+      <script src="{{ url_for('static', filename='tagging.js') }}"></script>
+    </main>
+  </div>
+</body>
+</html>

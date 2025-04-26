@@ -1,0 +1,478 @@
+:root {
+  --bg: #373232;          /* Background base - all backgrounds all pages */
+  --panel: #b0abab;  
+  --panel-insert: #ccc6c6;      /* Panel backgrounds - all panels all pages */
+  --border: #c45407;      /* Border color - all borders all pages */
+  --text: #5c5959;        /* Text on light backgrounds */
+  --text-light: #eeeeee;  /* Text on dark backgrounds */
+}
+html, body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;   /* 👈 Prevent horizontal scroll */
+  overflow-y: scroll;   /* 👈 Always show vertical scrollbar, prevents layout jump */
+  width: 100vw;         /* 👈 Locks width to viewport width */
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden; /* 👈 Prevents horizontal scroll */
+  background-color: var(--bg);
+  color: var(--text-light);
+}
+
+.layout {
+  display: flex;
+  max-width: 100vw; /* 🧠 Update to prevent horizontal overflow */
+  margin: 0 auto;
+  overflow-x: hidden; /* 👈 Stop that sidebar creep */
+}
+
+.btn-login {
+  background-color: #c45407;
+  color: black;
+  border: none;
+  border-radius: 6px;
+  padding: 1rem;
+  cursor: pointer;
+  font-weight: bold;
+  text-align: center;
+  text-decoration: none;
+  display: flex;
+  margin: 0.5rem auto; /* 👈 centers the element horizontally */
+  align-items: center;
+  justify-content: center;
+  margin-top: 1.5rem;
+  max-width: 200px;
+  width: auto;
+}
+
+.layout {
+  display: grid;
+  grid-template-columns: 250px 1fr;
+  min-height: 100vh;
+  gap: 1rem;
+}
+.divider {
+  text-align: center;
+  margin: 2rem 0;
+  font-style: italic;
+  color: var(--text-light);
+}
+/* 🧱 Give dropdowns full width + clean style */
+select {
+  width: 100%;
+  background-color: var(--panel);
+  color: var(--text);
+  border: 1px solid var(--border);
+  padding: 0.5rem;
+  margin-bottom: 0.75rem; /* Space between stacked dropdowns */
+  border-radius: 6px;
+  font-size: 1rem;
+}
+/* 🧩 Ensure dropdown containers fill up grid column width */
+.element-box,
+.principle-box {
+  width: 100%;
+}
+
+/* 🧱 Fix internal panel look */
+.element-box select,
+.principle-box select {
+  box-sizing: border-box;
+}
+
+select + select {
+  margin-top: 0.75rem; /* spacing between them */
+}
+
+.dropdown-group {
+  border: 2px solid var(--border);
+  border-radius: 6px;
+  padding: 0.75rem;
+  margin-bottom: 0.5rem;
+  background-color: var(--panel);
+  color: #373232;          /* Background base - all backgrounds all pages */
+  
+
+}
+.sidebar {
+  min-height: 100vh;
+  overflow-y: auto;
+  width: 220px; /* 🔧 Reduced from 300px to 240px */
+  flex-shrink: 0;
+  background-color: var(--panel);
+  border-right: 8px solid var(--border);
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+}
+.sidebar a {
+  color: #816d60;
+  text-decoration: none;
+  display: block;
+  margin: 5px 0;
+}
+
+.sidebar a:hover {
+  text-decoration: underline;
+  color: #50fa7b;
+}
+.sidebar-welcome {
+  padding-bottom: 1rem;
+  border-bottom:none;
+  margin-bottom: 1rem;
+  color: #e3ddd0
+}
+
+hr.clean-divider {
+  border: none;
+  border-top: 2px solid #e66900;
+  width: 80%;
+  margin: 1.5rem auto;
+  display: block;
+  height: 0; /* Ensures no collapsing */
+}
+
+.sidebar {
+  border-top: none;
+  border-bottom: none;
+}
+
+.sidebar-links {
+  padding-bottom: 1rem;
+  border-bottom: none;
+  margin-bottom: 1rem;
+  color: #e3ddd0;
+}
+
+.sidebar-subs {
+  padding-top: 1rem;
+  font-size: 0.95em;
+  color: #e3ddd0;
+}
+
+
+.buk-quote {
+  font-size: 0.80rem;
+  line-height: 1.4;
+  font-style: italic;
+  color: var(--text);
+  opacity: 0.75;
+  text-align: left;
+  margin-top: 2rem;
+  padding-right: 1rem;
+  max-width: 280px;
+  float: right;
+  
+}
+.panel-box {
+  background-color: #d6d0cc;
+  border: 4px solid #ff6600;
+  border-radius: 12px;
+  padding: 1.75rem 2rem;
+  margin-bottom: 2rem;
+}
+
+.boombox-bg {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;              /* 👈 Avoids pushing outside container */
+  max-width: 1000px;        /* Optional, still sets size ceiling */
+  transform: translate(-50%, -50%);
+  opacity: 0.1;
+  z-index: 0;
+  pointer-events: none;
+  filter: blur(1px);
+}
+
+
+.boombox-panel-box {
+  position: relative;
+  overflow: hidden;
+  background-color: #d6d0cc;
+  border: 4px solid #ff6600;
+  border-radius: 12px;
+  padding: 2rem;
+  margin-bottom: 1.2rem;
+  line-height: 1.5rem;
+  font-size: 1rem;
+  max-width: 800px;
+  text-shadow: 0px 0px 2px rgba(0, 0, 0, 0.3);
+}
+
+.boombox-text {
+  position: relative;
+  z-index: 1;
+  white-space: pre-wrap;
+  font-size: 1rem;
+  line-height: 1.6;
+  max-width: 700px;
+  margin: 0 auto;
+  color: #1f1f1f;
+}
+
+.main-content {
+  width: 100%;
+  height: 100vh;
+  overflow-y: auto;
+  max-width: 1000px;
+  padding: 2rem;
+  padding-bottom: 4rem;
+  border-radius: 12px;
+  box-sizing: border-box;
+  color: var(--text);
+}
+
+.panel-insert {
+  max-width: 90%;
+  background-color: var(--panel-insert);
+  padding: 1rem;
+  border-radius: 8px;
+  margin-right: 0;
+  margin-left: 0;
+}
+
+/* Make sure the panel backgrounds are consistent */
+.panel {
+  background-color: var(--panel);
+  border-radius: 6px;
+  padding: 0.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.panel-insert {
+  background-color: var(--panel-insert);
+  padding: 1rem;
+  border-radius: 8px;
+  margin: 0 auto;
+}
+
+/* Notes panel styling */
+.notes-panel {
+  margin-top: auto;  /* Push to bottom of flex container */
+}
+
+.notes-panel textarea {
+  width: 100%;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 0.5rem;
+  resize: vertical;
+  background-color: white;
+  color: var(--text);
+}
+
+.blue {
+  background-color: #350bf3;
+}
+
+.red {
+  background-color: #ff0d00;
+}
+
+.btn-reject {
+  background-color: #ff0d00;
+  color: white;
+  display: block;
+  margin: 0 auto;
+}
+
+/* Improve the tagging area layout */
+.tagging-area {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  background-color: var(--panel);
+  padding: 20px;
+  border-radius: 5px;
+  margin-bottom: 20px;
+}
+
+.left-tagging {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.right-tagging {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 15px;
+}
+
+/* Save status styling */
+.save-status {
+  display: none;
+  background-color: #4CAF50;
+  color: white;
+  text-align: center;
+  padding: 5px 10px;
+  border-radius: 4px;
+  margin: 5px 0;
+}
+
+footer {
+  background-color: var(--panel);
+  border-top: 2px solid var(--border);
+  color: var(--text);
+  text-align: center;
+  padding: 1rem;
+  margin-top: 4rem;
+  font-size: 0.9rem;
+  width: 100%;
+  overflow: hidden;
+  white-space: nowrap;
+}
+/* Add hover effect for better user experience */
+.btn-login:hover {
+  background-color: #9c4205; /* slightly darker yellow */
+  transform: translateY(-2px);
+  transition: all 0.2s;
+}
+
+.btn-offensive {
+  background-color: yellow;
+  color: black;
+}
+
+.btn-reject {
+  background-color: #ff0d00;
+  color: white;
+  
+}
+
+.blue {
+  background-color: #350bf3;
+  color: white;
+  margin-top: -0rem;
+}
+
+@media (max-width: 200px) {
+  .sidebar {
+    width: 100%;
+    max-width: 768px; 
+    border-right: 8px solid var(--border);;
+    border-bottom: 8px solid var(--border);
+    flex-direction: column;
+    justify-content: space-around;
+  }
+
+
+  footer {
+    margin-left: 0;
+  }
+}
+
+.logo {
+  max-width: 120px;   /* Adjust as needed */
+  width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto 1rem auto;
+}
+.buk-container img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  object-fit: contain;
+  display: block;
+}
+.site-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.section.panel h2 {
+  font-size: 1.75rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  margin-top: 2trem;
+  color: var(--text);
+}
+
+.site-header-title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--text);
+}
+.nav-button {
+  background-color: #000000;          /* Black background */
+  border: none;
+  padding: 0.75rem 1.5rem;            /* Space around icons */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+.nav-button img {
+  height: 28px;
+  width: auto;
+}
+.nav-button:hover {
+  background-color: #1a1a1a;          /* Slightly lighter black on hover */
+}
+
+.site-nav a {
+  margin-left: 2.5rem;
+  color: #bfbbbb;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+.site-nav a:hover {
+  color: var(--border);
+}
+
+/* Add these additional styles to your CSS file */
+
+/* Remove border from Tagger Notes panel */
+.panel.no-border {
+  border: none;
+  box-shadow: none;
+}
+
+/* Improve Image Issues checkbox layout */
+.checkbox {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: nowrap;
+  gap: 0.5rem;
+  margin-top: 1rem;
+  white-space: nowrap;
+}
+
+/* Make checkbox labels more compact */
+.checkbox label {
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+  gap: 0.2rem;
+}
+
+/* Ensure textarea has good contrast */
+textarea {
+  background-color: white;
+  color: var(--text);
+  border: 1px solid var(--border);
+}
+
+/* Adjust panel spacing */
+.panel-insert {
+  padding: 0.75rem;
+}
+
+.sidebar-highlight {
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.4); /* Example shadow - adjust as needed */
+  /* Add any other styles you want for these highlights */
+}
+
+

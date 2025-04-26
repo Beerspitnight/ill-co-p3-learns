@@ -1,0 +1,13 @@
+version: '3.8'
+services:
+  web:
+    build: .
+    ports:
+      - "5000:5000"
+    env_file:
+      - ./secrets/.env    # your environment variables
+    volumes:
+      - .:/app
+      - ./learning_app/output:/app/learning_app/output   # mount generated data
+      - ./secrets/ill-co-p3-learns-firebase-adminsdk.json:/app/secrets/ill-co-p3-learns-firebase-adminsdk.json
+    command: python app.py

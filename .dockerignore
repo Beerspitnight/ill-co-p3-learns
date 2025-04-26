@@ -1,0 +1,26 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+*.DS_Store
+
+# Environment
+venv/
+.env
+.venv/
+env/
+ENV/
+env.bak/
+venv.bak/
+.real.env
+*.env
+*.secrets
+*.toml
+.git
+
+# Streamlit Cloud
+.streamlit/secrets.toml
+.streamlit/
+
+# Don’t bake in generated outputs
+learning_app/output/

@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>ill-Co-P3 — Login / Create Account</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/static/styles.css">
+  <style>
+    :root {
+      --bg: #1e1e1e;
+      --panel: #b0abab;
+      --border: #c45407;
+      --text: #ffffff;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+    }
+
+    .auth-container {
+      background-color: var(--panel);
+      padding: 2rem;
+      border-radius: 12px;
+      border: 8px solid var(--border);
+      width: 90%;
+      max-width: 400px;
+    }
+
+    .toggle-buttons {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 1.5rem;
+      gap: 1rem;
+    }
+
+    .toggle-buttons button {
+      padding: 0.5rem 1rem;
+      background-color: var(--border);
+      color: #000;
+      border: none;
+      font-weight: bold;
+      cursor: pointer;
+      border-radius: 6px;
+      transition: background-color 0.2s ease;
+    }
+
+    .toggle-buttons button:hover {
+      background-color: #a33f05;
+    }
+
+    .auth-form {
+      display: none;
+    }
+
+    .auth-form.active {
+      display: block;
+    }
+
+    input[type="email"],
+    input[type="password"],
+    input[type="text"] {
+      width: 100%;
+      padding: 0.8rem;
+      margin-bottom: 1rem;
+      border: none;
+      border-radius: 6px;
+      font-size: 1rem;
+    }
+
+    .submit-btn {
+      width: 100%;
+      background-color: var(--border);
+      color: #000;
+      padding: 0.8rem;
+      border: none;
+      font-weight: bold;
+      border-radius: 6px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background-color 0.2s;
+    }
+
+    .submit-btn:hover {
+      background-color: #a33f05;
+    }
+
+    .form-title {
+      text-align: center;
+      margin-bottom: 1rem;
+      font-size: 1.4rem;
+      color: #000;
+      font-weight: 600;
+    }
+
+  </style>
+</head>
+<body>
+  <div class="auth-container">
+    <div class="toggle-buttons">
+      <button type="button" onclick="showForm('login')">Log In</button>
+      <button type="button" onclick="showForm('signup')">Create Account</button>
+    </div>
+
+    <form id="login-form" class="auth-form active" method="POST" action="/login">
+      <div class="form-title">Log In</div>
+      <input type="email" name="email" placeholder="Charles@Bukowski.com" required />
+      <input type="password" name="password" placeholder="Did you forget it?" required />
+      <button type="button" class="btn nav" onclick="submitForm('login')">Log In</button>
+    </form>
+    
+    <form id="signup-form" class="auth-form" method="POST" action="/login">
+      <div class="form-title">Create Account</div>
+      <input type="text" name="display_name" placeholder="Cool tagger name 👽" required />
+      <input type="email" name="email" placeholder="Email" required />
+      <input type="password" name="password" placeholder="12345678 - do it" required />
+      <button type="button" class="btn nav" onclick="submitForm('signup')">Create Account</button>
+    </form>
+    
+  </div>
+
+  <script>
+    function showForm(type) {
+      document.getElementById('login-form').classList.remove('active');
+      document.getElementById('signup-form').classList.remove('active');
+      document.getElementById(type + '-form').classList.add('active');
+    }
+
+    function submitForm(type) {
+      const form = document.getElementById(type + '-form');
+
+      // Remove any existing hidden action input to avoid duplicates
+      const existing = form.querySelector('input[name="action"]');
+      if (existing) form.removeChild(existing);
+
+      const hiddenAction = document.createElement("input");
+      hiddenAction.type = "hidden";
+      hiddenAction.name = "action";
+      hiddenAction.value = type;
+
+      form.appendChild(hiddenAction);
+      form.submit();
+    }
+  </script>
+</body>
+</html>
