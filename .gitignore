@@ -17,6 +17,7 @@ venv.bak/
 *.secrets
 *.toml
 
+wipe_tags.py
 
 # Protect secrets
 secrets/

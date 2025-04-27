@@ -57,7 +57,12 @@ class FirebaseClient:
 
     def get_total_tagged_count(self):
         all_tags = self._execute(lambda: db.reference("tags").get(), fallback={})
+    
+        if not all_tags:
+            return 0  # ✅ Safe: if no tags exist, just return 0
+
         return sum(len(t) for t in all_tags.values())
+
 
     def get_user_tagged_count(self, user_id):
         # This method seems incorrect based on your save path `tags/{image_id}/{user_id}`
